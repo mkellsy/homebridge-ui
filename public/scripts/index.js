@@ -43,7 +43,7 @@ function down_html() {
     html += "              </span>";
     html += "            <span class=\"mdc-list-item__text\">";
     html += "                HB";
-    html += "                <span class=\"mdc-list-item__text__secondary\">Not running</span>";
+    html += "                <span class=\"mdc-list-item__text__secondary\">Gestoppt</span>";
     html += "            </span>";
     html += "        </li>";
     html += "        <li class=\"mdc-list-item status-list\">";
@@ -52,7 +52,7 @@ function down_html() {
     html += "              </span>";
     html += "            <span class=\"mdc-list-item__text\">";
     html += "                Console";
-    html += "                <span class=\"mdc-list-item__text__secondary\">Not running</span>";
+    html += "                <span class=\"mdc-list-item__text__secondary\">Gestoppt</span>";
     html += "            </span>";
     html += "        </li>";
     html += "    </ul>";

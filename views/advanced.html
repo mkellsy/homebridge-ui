@@ -3,11 +3,11 @@
 <script src="/scripts/codemirror.javascript.js"></script>
 <div class="server-menu mdc-simple-menu" tabindex="-1">
     <ul class="mdc-simple-menu__items mdc-list" role="menu" aria-hidden="true">
-        <li class="guided-config mdc-list-item" role="menuitem" tabindex="0">Guided Editor</li>
-        <li class="backup-config mdc-list-item" role="menuitem" tabindex="0">Backup Configuration</li>
+        <li class="guided-config mdc-list-item" role="menuitem" tabindex="0">Vereinfachte Bearbeitung</li>
+        <li class="backup-config mdc-list-item" role="menuitem" tabindex="0">Konfiguration sichern</li>
         <li class="server-menu-divider mdc-list-divider" role="separator"></li>
-        <li class="change-password mdc-list-item" role="menuitem" tabindex="0">Change Password</li>
-        <li class="logout-button mdc-list-item" role="menuitem" tabindex="0">Logout</li>
+        <li class="change-password mdc-list-item" role="menuitem" tabindex="0">Passwort ändern</li>
+        <li class="logout-button mdc-list-item" role="menuitem" tabindex="0">Abmelden</li>
     </ul>
 </div>
 <form id="advanced-config" action="/config" method="post">
@@ -15,6 +15,6 @@
         <textarea id="config-code" name="config">{{config}}</textarea>
     </div>
     <div class="config-form-actions">
-        <button type="button" class="save-button mdc-button mdc-button--raised mdc-button--primary mdc-ripple-surface" data-mdc-auto-init="MDCRipple">Save</button>
+        <button type="button" class="save-button mdc-button mdc-button--raised mdc-button--primary mdc-ripple-surface" data-mdc-auto-init="MDCRipple">Speichern</button>
     </div>
 </form>

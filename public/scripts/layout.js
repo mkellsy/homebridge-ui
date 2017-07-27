@@ -13,19 +13,19 @@ $(document).ready(function () {
             var message = "";
 
             if (isNaN(form.find("#user-id").val())) {
-                message += "Invalid user.<br />";
+                message += "Falscher Nutzer.<br />";
             }
 
             if (form.find("#new-password").val() == "") {
-                message += "You must set a password.<br />";
+                message += "Du musst ein Passwort vergeben.<br />";
             }
 
             if (form.find("#new-password").val().length < 8) {
-                message += "Password must be at least 8 characters long.<br />";
+                message += "Das Passwort muss aus mind. 8 Zeichen bestehen.<br />";
             }
 
             if (form.find("#new-password").val() != form.find("#confirm-password").val()) {
-                message += "Passwords do not match.<br />";
+                message += "Passwörter stimmen nicht überein.<br />";
             }
 
             if (message == "") {

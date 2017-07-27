@@ -150,21 +150,21 @@ $(document).ready(function () {
                     var name = $("#platforms").find("#" + input.attr("platform") + "-name").val();
 
                     if (name == "") {
-                        if (message.indexOf("Each platform must have a name.") == -1) {
+                        if (message.indexOf("Jede Platform muss einen Namen haben.") == -1) {
                             if (message != "") {
                                 message += "<br />";
                             }
 
-                            message += "Each platform must have a name.";
+                            message += "Jede Platform muss einen Namen haben.";
                         }
                     } else {
                         if (platformNames.indexOf(name) >= 0) {
-                            if (message.indexOf("Your platform names must be unique.") == -1) {
+                            if (message.indexOf("Die Namen der Platformen dürfen nicht gleich sein.") == -1) {
                                 if (message != "") {
                                     message += "<br />";
                                 }
 
-                                message += "Your platform names must be unique.";
+                                message += "Die Namen der Platformen dürfen nicht gleich sein.";
                             }
                         } else {
                             platformNames.push(name);
@@ -174,21 +174,21 @@ $(document).ready(function () {
                     var name = $("#platforms").find("#" + input.attr("accessory") + "-name").val();
 
                     if (name == "") {
-                        if (message.indexOf("Each accessory must have a name.") == -1) {
+                        if (message.indexOf("Jede Platform muss einen Namen haben.") == -1) {
                             if (message != "") {
                                 message += "<br />";
                             }
 
-                            message += "Each accessory must have a name.";
+                            message += "Jede Platform muss einen Namen haben.";
                         }
                     } else {
                         if (accessoryNames.indexOf(name) >= 0) {
-                            if (message.indexOf("Your accessory names must be unique.") == -1) {
+                            if (message.indexOf("Die Namen der Platformen dürfen nicht gleich sein.") == -1) {
                                 if (message != "") {
                                     message += "<br />";
                                 }
 
-                                message += "Your accessory names must be unique.";
+                                message += "Die Namen der Platformen dürfen nicht gleich sein.";
                             }
                         } else {
                             accessoryNames.push(name);
