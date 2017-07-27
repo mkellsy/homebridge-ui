@@ -1,21 +1,21 @@
 # Homebridge Config UI
 
-This is a plugin for [Homebridge](https://github.com/nfarina/homebridge)
+Dies ist ein Plugin für Homebridge [Homebridge](https://github.com/nfarina/homebridge)
 
-This plugin allows you to monitor, backup and configure your Homebridge server from a browser.
+Dieses Plugin erlaubt dir, in einem Browser, deine Homebridge-Konfiguration anzuzeigen, zu sichern und zu ändern.
 
 ![Status](status.png)
 
-# Installation Instructions
+# Installationsanleitung
 
-First install the plugin
+Zuerst das Plugin installieren
 ```Bash
 sudo npm i -g homebridge-config-ui
 ```
 
-### For Supervisord
+### Für Supervisord
 
-Add this to your ~/.homebridge/config.json file
+Füge dies zur ~/.homebridge/config.json Datei hinzu
 ```JSON
 {
     "platform": "config",
@@ -27,15 +27,15 @@ Add this to your ~/.homebridge/config.json file
 }
 ```
 
-This example uses [supervisor](http://supervisord.org/) to control homebridge. This is a good supervisor how to: [Running Supervisor on OSX](https://nicksergeant.com/running-supervisor-on-os-x/)
+In diesem Beispiel wird [supervisor](http://supervisord.org/) verwendet, um Homebridge zu steuern. Dies ist eine gute Anleitung für supervisor: [Supervisor auf OSX verwenden](https://nicksergeant.com/running-supervisor-on-os-x/)
 
-Replace <b>/var/log/homebridge.stdout.log</b> with the path to your Homebridge output log.<br />
-Replace <b>/var/log/homebridge.stderr.log</b> with the path to your Homebridge error log.<br />
-Replace <b>/usr/local/bin/supervisorctl restart homebridge</b> with the command you use to restart Homebridge.
+Ersetze <b>/var/log/homebridge.stdout.log</b> mit dem Pfad zu deinem Homebridge output log.<br />
+Ersetze <b>/var/log/homebridge.stderr.log</b> mit dem Pfad zu deinem Homebridge error log.<br />
+Ersetze <b>/usr/local/bin/supervisorctl restart homebridge</b> mit dem Befehl, um deine Homebridge neu zu starten.
 
-### For Systemd
+### Für Systemd
 
-Add this to your /var/homebridge/config.json file
+Füge dies zu deiner /var/homebridge/config.json Datei hinzu
 ```JSON
 {
     "platform": "config",
@@ -46,35 +46,35 @@ Add this to your /var/homebridge/config.json file
 }
 ```
 
-Replace <b>/var/log/daemon.log</b> with the path to your Homebridge output log.<br />
-Replace <b>sudo systemctl restart homebridge.service</b> with the command you use to restart Homebridge.
+Ersetze <b>/var/log/daemon.log</b> mit dem Pfad zu deinem Homebridge output log.<br />
+Ersetze <b>sudo systemctl restart homebridge.service</b> mit dem Befehl, um deine Homebridge neu zu starten.
 
-# Initial Run
+# Erster Start
 
-Once installed you can open the interface at http://localhost:8080. The default username is <b>admin</b> and the default password is <b>admin</b>.
+Nach dem Installieren kannst du die Oberfläche unter http://localhost:8080 aufrufen. Der standard Nutzername ist <b>admin</b> und das standard Passwort ist <b>admin</b>.
 
-# Usage
+# Nutzung
 
-Login Screen
+Anmeldebildschirm
 
-Most of your platform configs have usernames and passwords in them. To keep these seceret, this plugin has basic authentication. The users are stored in the ~/.homebridge/auth.json file.
+Viele deiner Plugin Konfigurationen enthalten Nutzernamen und Passwörter. Um dies geschützt zu halten, besitzt dieses Plugin eine standard Authentifizierung. Die Nutzer sind in der Datei ~/.homebridge/auth.json hinterlegt.
 
-![Login](login.png)
+![Anmeldung](login.png)
 
-Status Screen
+Status Bildschirm
 
-This shows you that the services are running. It also has your HomeKit pin.
+Hier siehst du, ob Homebridge ausgeführt wird. Auch dein HomeKit PIN wird hier angezeigt.
 
 ![Status](status.png)
 
-Log Screen
+Anzeige der Log Datei
 
-This shows you the rolling log. This is helpful for troubleshooting.
+Live Anzeige des Logs. Kann sehr hilfreich sein, falls Probleme auftreten sollten.
 
 ![Log](log.png)
 
-Configuration Screen
+Bildschirm Konfiguration
 
-And finally the configuration screen allows you to modify your Homebridge settings and your platforms and accessories.
+In der Konfiguration kannst du Homebridge Einstellungen ändern und Einträge zur config.json Datei hinzufügen.
 
-![Config](config.png)
+![Konfiguration](config.png)
