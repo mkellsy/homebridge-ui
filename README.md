@@ -1,6 +1,6 @@
 # Homebridge Config UI
 
-Dies ist ein Plugin für Homebridge [Homebridge](https://github.com/nfarina/homebridge)
+Dies ist ein Plugin für [Homebridge](https://github.com/nfarina/homebridge)
 
 Dieses Plugin erlaubt dir, in einem Browser, deine Homebridge-Konfiguration anzuzeigen, zu sichern und zu ändern.
 
@@ -57,7 +57,7 @@ Nach dem Installieren kannst du die Oberfläche unter http://localhost:8080 aufr
 
 Anmeldebildschirm
 
-Viele deiner Plugin Konfigurationen enthalten Nutzernamen und Passwörter. Um dies geschützt zu halten, besitzt dieses Plugin eine standard Authentifizierung. Die Nutzer sind in der Datei ~/.homebridge/auth.json hinterlegt.
+Viele deiner Plugin Konfigurationen enthalten Nutzernamen und Passwörter. Um dies zu schützen, besitzt dieses Plugin eine standard Authentifizierung. Die Nutzer sind in der Datei ~/.homebridge/auth.json hinterlegt.
 
 ![Anmeldung](login.png)
 
