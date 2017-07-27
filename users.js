@@ -5,7 +5,7 @@ exports.findById = function (id, callback) {
         if (app.get("auths")[idx]) {
             callback(null, app.get("auths")[idx]);
         } else {
-            callback(new Error("Nutzer " + id + " existiert nicht“));
+            callback(new Error("Nutzer " + id + " existiert nicht"));
         }
     });
 }
