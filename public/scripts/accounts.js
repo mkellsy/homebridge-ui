@@ -6,24 +6,24 @@ $(document).ready(function () {
         var message = "";
 
         if (isNaN(form.find("#auth-user-id").val())) {
-            message += "Invalid user.<br />";
+            message += "Ungültiger Nutzer.<br />";
         }
 
         if (form.find("#auth-username") == "") {
-            message += "Invalid user.<br />";
+            message += "Ungültiger Nutzer.<br />";
         }
 
         if (form.find("#auth-name") == "") {
-            message += "Invalid user.<br />";
+            message += "Ungültiger Nutzer.<br />";
         }
 
         if (form.find("#auth-password").val() != "") {
             if (form.find("#auth-password").val().length < 8) {
-                message += "Password must be at least 8 characters long.<br />";
+                message += "Passwort muss mindestens aus 8 Zeichen bestehen.<br />";
             }
 
             if (form.find("#auth-password").val() != form.find("#auth-confirm-password").val()) {
-                message += "Passwords do not match.<br />";
+                message += "Passwörter stimmen nicht überein.<br />";
             }
         }
 
@@ -52,7 +52,7 @@ $(document).ready(function () {
         form.find("#auth-username").val(btn.attr("authusername")).focus();
         form.find("#auth-admin").val(btn.attr("authadmin"));
 
-        $("#edit-auth-dialog").find("#auth-name-title").html("Edit " + btn.attr("authname"));
+        $("#edit-auth-dialog").find("#auth-name-title").html("Bearbeite " + btn.attr("authname"));
 
         if (!isNaN(parseInt(btn.attr("authid"))) && parseInt(btn.attr("authid")) == 1) {
             $(".delete-auth-button").hide();
@@ -81,7 +81,7 @@ $(document).ready(function () {
         form.find("#auth-username").val("").focus();
         form.find("#auth-admin").val("false");
 
-        $("#edit-auth-dialog").find("#auth-name-title").html("Add User");
+        $("#edit-auth-dialog").find("#auth-name-title").html("Nutzer hinzufügen");
         $(".delete-auth-button").hide();
 
         form.find("#auth-admin-check").prop("checked", false).prop("disabled", false);

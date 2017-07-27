@@ -37,7 +37,7 @@ router.get("/advanced", function (req, res, next) {
 
     res.render("advanced", {
         controller: "config",
-        title: "Configuration",
+        title: "Konfiguration",
         user: req.user,
         config: JSON.stringify(require(hb.config), null, 4)
     });
@@ -58,11 +58,11 @@ router.post("/advanced", function (req, res, next) {
 
     delete require.cache[require.resolve(hb.config)];
 
-    app.get("log")("Configuration Changed.");
+    app.get("log")("Konfiguration geändert.");
 
     res.render("advanced", {
         controller: "config",
-        title: "Configuration",
+        title: "Konfiguration",
         user: req.user,
         config: JSON.stringify(require(hb.config), null, 4)
     });
@@ -128,7 +128,7 @@ function write(req, res) {
 
     res.render("config", {
         controller: "config",
-        title: "Configuration",
+        title: "Konfiguration",
         user: req.user,
         server: server,
         platforms: platforms,
@@ -189,7 +189,7 @@ function save(req, res) {
 
     delete require.cache[require.resolve(hb.config)];
 
-    app.get("log")("Configuration Changed.");
+    app.get("log")("Konfiguration geändert.");
 }
 
 module.exports = router;
