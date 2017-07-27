@@ -1,7 +1,7 @@
 <div class="server-menu mdc-simple-menu" tabindex="-1">
     <ul class="mdc-simple-menu__items mdc-list" role="menu" aria-hidden="true">
-        <li class="change-password mdc-list-item" role="menuitem" tabindex="0">Change Password</li>
-        <li class="logout-button mdc-list-item" role="menuitem" tabindex="0">Logout</li>
+        <li class="change-password mdc-list-item" role="menuitem" tabindex="0">Passwort ändern</li>
+        <li class="logout-button mdc-list-item" role="menuitem" tabindex="0">Abmelden</li>
     </ul>
 </div>
 <aside id="edit-auth-dialog" class="mdc-dialog" role="alertdialog">
@@ -19,27 +19,27 @@
                 <div class="mdc-form-field" style="margin-left: 20px;">
                     <div class="mdc-textfield" data-mdc-auto-init="MDCTextfield">
                         <input id="auth-username" name="username" type="text" class="mdc-textfield__input" value="">
-                        <label for="auth-username" class="mdc-textfield__label">Username</label>
+                        <label for="auth-username" class="mdc-textfield__label">Nutzername</label>
                     </div>
                 </div>
                 <br />
                 <div class="mdc-form-field" style="margin-left: 20px;">
                     <div class="mdc-textfield" data-mdc-auto-init="MDCTextfield">
                         <input id="auth-name" name="name" type="text" class="mdc-textfield__input" value="">
-                        <label for="auth-name" class="mdc-textfield__label">Full Name</label>
+                        <label for="auth-name" class="mdc-textfield__label">Richtiger Name</label>
                     </div>
                 </div>
                 <br />
                 <div class="mdc-form-field" style="margin-left: 20px;">
                     <div class="mdc-textfield" data-mdc-auto-init="MDCTextfield">
                         <input id="auth-password" name="password" type="password" class="mdc-textfield__input" value="">
-                        <label for="auth-password" class="mdc-textfield__label">New Password</label>
+                        <label for="auth-password" class="mdc-textfield__label">Neues Passwort</label>
                     </div>
                 </div>
                 <div class="mdc-form-field" style="margin-left: 20px;">
                     <div class="mdc-textfield" data-mdc-auto-init="MDCTextfield">
                         <input id="auth-confirm-password" type="password" class="mdc-textfield__input" value="">
-                        <label for="auth-confirm-password" class="mdc-textfield__label">Confirm Password</label>
+                        <label for="auth-confirm-password" class="mdc-textfield__label">Passwort bestätigen</label>
                     </div>
                 </div>
                 <br />
@@ -65,9 +65,9 @@
                 </table>
             </section>
             <footer class="mdc-dialog__footer">
-                <button type="button" class="mdc-button mdc-dialog__footer__button mdc-dialog__footer__button--cancel">Cancel</button>
-                <button type="button" class="delete-auth-button mdc-button mdc-dialog__footer__button mdc-dialog__footer__button mdc-dialog__footer__button--cancel" style="color: #b21313;">Delete</button>
-                <button type="button" class="save-auth-button mdc-button mdc-dialog__footer__button">Save</button>
+                <button type="button" class="mdc-button mdc-dialog__footer__button mdc-dialog__footer__button--cancel">Abbrechen</button>
+                <button type="button" class="delete-auth-button mdc-button mdc-dialog__footer__button mdc-dialog__footer__button mdc-dialog__footer__button--cancel" style="color: #b21313;">Löschen</button>
+                <button type="button" class="save-auth-button mdc-button mdc-dialog__footer__button">Speichern</button>
             </footer>
         </form>
     </div>
@@ -77,15 +77,15 @@
     <div class="mdc-dialog__surface" style="width: 640px;">
         <header class="mdc-dialog__header">
             <h2 class="mdc-dialog__header__title">
-                Are sure you want to delete <span id="delete-auth-name"></span>?
+                Bist du sicher, das du den Nutzer <span id="delete-auth-name"></span> löschen möchtest?
             </h2>
         </header>
         <section class="mdc-dialog__body">
-            This user will not be able to login anymore.
+            Dieser Nutzer wird sich nicht mehr anmelden können.
         </section>
         <footer class="mdc-dialog__footer">
-            <button type="button" class="mdc-button mdc-dialog__footer__button mdc-dialog__footer__button--cancel">Cancel</button>
-            <button type="button" class="mdc-button mdc-dialog__footer__button mdc-dialog__footer__button--accept">Delete</button>
+            <button type="button" class="mdc-button mdc-dialog__footer__button mdc-dialog__footer__button--cancel">Abbrechen</button>
+            <button type="button" class="mdc-button mdc-dialog__footer__button mdc-dialog__footer__button--accept">Löschen</button>
         </footer>
     </div>
     <div class="mdc-dialog__backdrop"></div>
@@ -108,12 +108,12 @@
             <span class="mdc-list-item__text__secondary">Administrator</span>
             {{/admin}}
             {{^admin}}
-        <span class="mdc-list-item__text__secondary">User</span>
+        <span class="mdc-list-item__text__secondary">Nutzer</span>
         {{/admin}}
         </span>
     </li>
     {{/auths}}
 </ul>
 <div class="auth-actions">
-    <button type="button" class="add-auth-button mdc-button mdc-button--raised mdc-button--primary mdc-ripple-surface" data-mdc-auto-init="MDCRipple">Add</button>
+    <button type="button" class="add-auth-button mdc-button mdc-button--raised mdc-button--primary mdc-ripple-surface" data-mdc-auto-init="MDCRipple">Hinzufügen</button>
 </div>
