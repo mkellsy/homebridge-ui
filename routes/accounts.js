@@ -13,7 +13,7 @@ router.get("/", function (req, res, next) {
     if (req.user.admin) {
         res.render("accounts", {
             controller: "accounts",
-            title: "Accounts",
+            title: "Benutzer",
             user: req.user,
             auths: app.get("auths")
         });

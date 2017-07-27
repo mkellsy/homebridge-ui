@@ -41,7 +41,7 @@ router.get("/upgrade", function (req, res, next) {
     }
 }, function (req, res, next) {
     npm.update(req.query.package, function (err, stdout, stderr) {
-        app.get("log")("Package " + req.query.package + " upgraded.");
+        app.get("log")("Paket " + req.query.package + " aktualisiert.");
         res.redirect("/plugins");
     });
 });
@@ -97,7 +97,7 @@ router.get("/uninstall", function (req, res, next) {
     delete require.cache[require.resolve(hb.config)];
 
     npm.uninstall(req.query.package, function (err, stdout, stderr) {
-        app.get("log")("Package " + req.query.package + " removed.");
+        app.get("log")("Paket " + req.query.package + " entfernt.");
         res.redirect("/plugins");
     });
 });
@@ -111,7 +111,7 @@ router.get("/install", function (req, res, next) {
     }
 }, function (req, res, next) {
     var platform = {
-        "platform": "[ENTER PLATFORM]",
+        "platform": "[PLATFORM eingeben]",
         "npm_package": req.query.package
     }
 
@@ -161,7 +161,7 @@ router.post("/install", function (req, res, next) {
     delete require.cache[require.resolve(hb.config)];
 
     npm.uninstall(req.body.package, function (err, stdout, stderr) {
-        app.get("log")("Package " + req.body.package + " installed.");
+        app.get("log")("Paket " + req.body.package + " installiert.");
         res.redirect("/plugins");
     });
 });

@@ -52,7 +52,7 @@ router.get("/clear", function (req, res, next) {
 }, function (req, res, next) {
     fs.truncate(hb.log, 0, function () {
         fs.truncate(hb.error_log, 0, function () {
-            app.get("log")("Logs cleared by " + req.user.name + ".");
+            app.get("log")("Logs gelöscht von " + req.user.name + ".");
         });
     });
 });

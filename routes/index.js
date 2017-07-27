@@ -79,7 +79,7 @@ router.get("/restart", function (req, res, next) {
 }, function (req, res, next) {
     res.render("progress", {
         layout: false,
-        message: "Restarting Server",
+        message: "Homebridge wird neu gestartet",
         redirect: "/"
     });
 
@@ -94,11 +94,11 @@ router.get("/upgrade", function (req, res, next) {
         res.redirect("/login");
     }
 }, function (req, res, next) {
-    app.get("log")("Homebridge server upgraded.");
+    app.get("log")("Homebridge aktualisiert.");
 
     res.render("progress", {
         layout: false,
-        message: "Upgrading Server",
+        message: "Homebridge wird aktualisiert",
         redirect: "/"
     });
 
@@ -115,7 +115,7 @@ router.get("/logout", function (req, res, next) {
         res.redirect("/login");
     }
 }, function (req, res) {
-    app.get("log")(req.user.name + " logged out.");
+    app.get("log")(req.user.name + " abgemeldet.");
 
     req.logout();
     res.redirect("/");
@@ -135,7 +135,7 @@ router.post("/login", function (req, res) {
         }
 
         if (!user) {
-            app.get("log")("Failed login attempt.");
+            app.get("log")("Erfolgloser Anmeldeversuch.");
 
             return res.redirect("/login");
         }
@@ -148,7 +148,7 @@ router.post("/login", function (req, res) {
             var referer = req.session.referer ? req.session.referer : "/";
             delete req.session.referer;
 
-            app.get("log")(user.name + " successfully logged in.");
+            app.get("log")(user.name + " erfolgreich angemeldet.");
 
             return res.redirect(referer);
         });
