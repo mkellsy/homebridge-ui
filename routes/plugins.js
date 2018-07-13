@@ -1,7 +1,11 @@
+var fs = require("fs");
 var npm = require("../npm");
 var fs = require("fs");
 var express = require("express");
 var router = express.Router();
+var now = new Date();
+var userId = 1000; //fs.append changes the file ownership to root:root this is to change back to user
+var groupId = 1000; //fs.append changes the file ownership to root:root this is to change back to user
 
 router.get("/", function (req, res, next) {
     if (req.user) {
@@ -72,12 +76,6 @@ router.get("/uninstall", function (req, res, next) {
         }
     }
 
-    config.platforms = [];
-
-    for (var i = 0; i < platforms.length; i++) {
-        config.platforms.push(platforms[i]);
-    }
-
     var accessories = [];
 
     for (var i = 0; i < config.accessories.length; i++) {
@@ -86,15 +84,12 @@ router.get("/uninstall", function (req, res, next) {
         }
     }
 
-    config.accessories = [];
-
-    for (var i = 0; i < accessories.length; i++) {
-        config.accessories.push(accessories);
-    }
-
-    fs.renameSync(hb.config, hb.config + "." + Math.floor(new Date() / 1000));
+    fs.renameSync(hb.config, hb.config + "." + now.getFullYear() + "-"+ now.getMonth() + "-" + now.getDay() + "-" + ("0" + now.getHours()).slice(-2)   + ":" + 
+    ("0" + now.getMinutes()).slice(-2) + ":" + 
+    ("0" + now.getSeconds()).slice(-2));
     fs.appendFileSync(hb.config, JSON.stringify(config, null, 4));
-
+    fs.chownSync(hb.config, userId,groupId);
+    
     delete require.cache[require.resolve(hb.config)];
 
     npm.uninstall(req.query.package, function (err, stdout, stderr) {
@@ -136,7 +131,7 @@ router.post("/install", function (req, res, next) {
     var config = require(hb.config);
 
     if (req.body["platform-code"] != "" && req.body["platform-name"] != "") {
-        var platform = JSON.parse(req.body.platform_json);
+        var platform = JSON.parse(req.body["platform-code"]);
 
         platform.name = req.body["platform-name"];
 
@@ -147,21 +142,25 @@ router.post("/install", function (req, res, next) {
         config.platforms.push(platform);
     }
 
-    for (var i = 0; i < req.body.accessory.length; i++) {
-        if (req.body[req.body.accessory[i] + "-delete"] == "false") {
-            var accessory = JSON.parse(req.body[req.body.accessory[i] + "-code"]);
+    if (!config.accessories){
+        config.accessories = [];
+    } else
+        if (req.body[req.body.accessory + "-delete"] == "false") {
+            var accessory = JSON.parse(req.body[req.body.accessory + "-code"]);
 
-            accessory.name = req.body[req.body.accessory[i] + "-name"];
+            accessory.name = req.body[req.body.accessory + "-name"];
             config.accessories.push(accessory);
         }
-    }
 
-    fs.renameSync(hb.config, hb.config + "." + Math.floor(new Date() / 1000));
+    fs.renameSync(hb.config, hb.config + "." + now.getFullYear() + "-"+ now.getMonth() + "-" + now.getDay() + "-" + ("0" + now.getHours()).slice(-2)   + ":" + 
+    ("0" + now.getMinutes()).slice(-2) + ":" + 
+    ("0" + now.getSeconds()).slice(-2));
     fs.appendFileSync(hb.config, JSON.stringify(config, null, 4));
+    fs.chownSync(hb.config, userId,groupId);
 
     delete require.cache[require.resolve(hb.config)];
 
-    npm.uninstall(req.body.package, function (err, stdout, stderr) {
+    npm.install(req.body.package, function (err, stdout, stderr) {
         app.get("log")("Package " + req.body.package + " installed.");
         res.redirect("/plugins");
     });

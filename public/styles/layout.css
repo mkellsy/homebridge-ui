@@ -123,12 +123,21 @@ content {
     .index table tbody tr td {
         width: 100%;
         height: 100%;
+        float: left;
         vertical-align: top;
+        width:calc(50% - 2px);
     }
 
     .index table tbody tr td:first-child {
         width: 298px;
     }
+
+    @media screen and (max-width: 600px) {
+        .index table tbody tr td
+        {
+            width:100%;
+        }
+}
 
 .index .welcome {
     padding: 20px;
@@ -167,12 +176,14 @@ content {
     color: #00b9f1;
     font-size: 1.8em;
     margin: 20px 0 14px 0;
+    margin-left: 25px;
 }
 
 .index section {
     margin: 0 20px 20px 0;
     padding: 20px;
     background-color: #fff;
+    margin-left: 20px;
 }
 
     .index section h3 {
@@ -224,8 +235,15 @@ content {
 
 .accounts .account-list {
     background-color: #fff;
-    min-width: 320px;
-    margin: 20px;
+    margin: 20px 0px 20px 20px;
+    width:calc(50% - 2px);
+}
+
+    @media screen and (max-width: 600px) {
+.accounts .account-list
+  {
+    width:80%;
+  }
 }
 
     .accounts .account-list a {
@@ -379,17 +397,53 @@ content {
     left: 57px;
 }
 
-    .plugins .plugin-search-form input {
-        background-color: #fff;
-        width: 370px;
-        height: 27px;
-        padding: 4px 10px 5px 10px;
-    }
+input {
+	outline: none;
+}
 
-    .plugins .search-button {
-        margin-top: -9px;
-        margin-left: -6px;
-    }
+input[type=search] {
+	-webkit-appearance: textfield;
+	-webkit-box-sizing: content-box;
+	font-family: inherit;
+	font-size: 100%;
+}
+input::-webkit-search-decoration,
+input::-webkit-search-cancel-button {
+	display: none; 
+}
+
+input[type=search] {
+	background: #ededed url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
+	border: solid 1px #ccc;
+	padding: 9px 10px 9px 32px;
+	width: 80%;
+	
+	-webkit-border-radius: 10em;
+	-moz-border-radius: 10em;
+	border-radius: 10em;
+	
+	-webkit-transition: all .5s;
+	-moz-transition: all .5s;
+	transition: all .5s;
+}
+
+input[type=search]:focus {
+	width: 90%;
+	background-color: #fff;
+	border-color: #66CC75;
+	
+	-webkit-box-shadow: 0 0 5px rgba(109,207,246,.5);
+	-moz-box-shadow: 0 0 5px rgba(109,207,246,.5);
+	box-shadow: 0 0 5px rgba(109,207,246,.5);
+}
+
+
+input:-moz-placeholder {
+	color: #999;
+}
+input::-webkit-input-placeholder {
+	color: #999;
+}
 
 .title {
     cursor: default;

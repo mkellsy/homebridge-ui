@@ -47,7 +47,7 @@
                             pkg.description = "No description.";
                         }
 			
-                        var name = publicPackage ? body.collected.metadata.name : pkg.name + " (private)";
+                        var name = publicPackage ? body.collected.metadata.name : pkg.name;
                         var intalled = pkg.version;
                         var version = publicPackage ? body.collected.metadata.version : "N/A";
                         var update = publicPackage ? !(me.versionCompare(pkg.version, body.collected.metadata.version)) : !(me.versionCompare(pkg.version, pkg.version));
@@ -132,20 +132,28 @@
                         url: "https://api.npms.io/v2/package/" + name,
                         json: true
                     }, function (err, res, body) {
-                        var desc = body.collected.metadata.description.replace(/(?:https?|ftp):\/\/[\n\S]+/g, "").trim();
+	    		if(!err && res.statusCode==200){
+				var desc = body.collected.metadata.description.replace(/(?:https?|ftp):\/\/[\n\S]+/g, "").trim();
 
-                        if (desc.length > 80) {
-                            desc = desc.substring(0, 77) + "...";
-                        }
+				if (desc.length > 80) {
+				    desc = desc.substring(0, 77) + "...";
+				}
 
-                        callback(err, {
-                            name: body.collected.metadata.name,
-                            installed: version,
-                            version: body.collected.metadata.version,
-                            update: !(me.versionCompare(version, body.collected.metadata.version)),
-                            description: desc,
-                            links: body.collected.metadata.links
-                        });
+				callback(err, {
+				    name: body.collected.metadata.name,
+				    installed: version,
+				    version: body.collected.metadata.version,
+				    update: !(me.versionCompare(version, body.collected.metadata.version)),
+				    description: desc,
+				    links: body.collected.metadata.links
+				});
+			} else{
+				callback(err, {
+				name: name,
+				installed: version,
+				description: desc
+				});
+			}	
                     });
                 }
             }
@@ -183,11 +191,8 @@
             if (process.platform === "win32") {
                 base = path.join(process.env.APPDATA, "npm/node_modules");
             } else {
-                if (fs.existsSync("/usr/lib/node_modules")) {
-                    base = "/usr/lib/node_modules";
-                } else {
-                    base = "/usr/local/lib/node_modules";
-                }
+                fs.existsSync(hb.base);
+                base = hb.base;
             }
 
             return base;
