@@ -6,7 +6,7 @@ This plugin allows you to monitor, backup and configure your Homebridge server f
 
 ![](https://raw.githubusercontent.com/mkellsy/homebridge-config-ui/master/status.png)
 
-# Installation Instructions
+## Installation Instructions
 
 First install the plugin
 ```Bash
@@ -50,11 +50,11 @@ Replace <b>/var/log/daemon.log</b> with the path to your Homebridge output log.<
 Replace <b>sudo systemctl restart homebridge.service</b> with the command you use to restart Homebridge.
 
 
-# Initial Run
+## Initial Run
 
 Once installed you can open the interface at http://localhost:8080. The default username is <b>admin</b> and the default password is <b>admin</b>.
 
-# Usage
+## Interface
 
 Login Screen
 
