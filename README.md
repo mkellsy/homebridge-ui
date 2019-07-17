@@ -8,7 +8,7 @@ This plugin allows you to monitor, backup and configure your Homebridge server f
 
 ## Installation Instructions
 
-> This is a depracated project. This interface has moved to the [Homebridge(X)](https://github.com/mkellsy/homebridge-x) project. If you are looking for a configuration plugin, check out [homebridge-config-ui-x](https://github.com/oznu/homebridge-config-ui-x).
+> This is a deprecated project and is no longer being developed. This interface has moved to the [Homebridge(X)](https://github.com/mkellsy/homebridge-x) project. If you are looking for a configuration plugin, check out [homebridge-config-ui-x](https://github.com/oznu/homebridge-config-ui-x).
 
 First install the plugin
 ```Bash
