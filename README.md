@@ -4,43 +4,51 @@ This is a plugin for [Homebridge](https://github.com/nfarina/homebridge)
 
 This plugin allows you to monitor, backup and configure your Homebridge server from a browser.
 
-![Status](status.png)
+![](https://raw.githubusercontent.com/mkellsy/homebridge-config-ui/master/status.png)
 
 # Installation Instructions
 
-First download the zip or do a git clone
-```git clone
-git clone https://github.com/shidevil/homebridge-config-ui.git
+First install the plugin
+```Bash
+sudo npm install -g homebridge-config-ui --unsafe-perm
 ```
 
-next transfer the file to your raspberry pi or homebridge box. Place it at documents or anywhere you can find, cd into the folder.
-```install
-sudo npm install -g 
+### For Supervisord
+
+Add this to your ~/.homebridge/config.json file
+```JSON
+{
+    "platform": "config",
+    "name": "Config",
+    "port": 8080,
+    "log": "/var/log/homebridge.stdout.log",
+    "error_log": "/var/log/homebridge.stderr.log",
+    "restart": "/usr/local/bin/supervisorctl restart homebridge"
+}
 ```
 
-### Systemd
+This example uses [supervisor](http://supervisord.org/) to control homebridge. This is a good supervisor how to: [Running Supervisor on OSX](https://nicksergeant.com/running-supervisor-on-os-x/)
+
+Replace <b>/var/log/homebridge.stdout.log</b> with the path to your Homebridge output log.<br />
+Replace <b>/var/log/homebridge.stderr.log</b> with the path to your Homebridge error log.<br />
+Replace <b>/usr/local/bin/supervisorctl restart homebridge</b> with the command you use to restart Homebridge.
+
+### For Systemd
 
 Add this to your /var/homebridge/config.json file
 ```JSON
-"platform":[
 {
     "platform": "config",
     "name": "Config",
     "port": 8080,
     "log": "/var/log/daemon.log",
-    "restart": "sudo systemctl restart homebridge.service",
-    "temp" : "/sys/class/thermal/thermal_zone0/temp",
-    "base": "/usr/local/lib/node_modules"
+    "restart": "sudo systemctl restart homebridge.service"
 }
-]
 ```
 
 Replace <b>/var/log/daemon.log</b> with the path to your Homebridge output log.<br />
-Replace <b>sudo systemctl restart homebridge.service</b> with the command you use to restart Homebridge.<br />
-Replace <b>/sys/class/thermal/thermal_zone0/temp</b> with the command you use to check the CPU Temperature.<br />
-Replace <b>/usr/local/lib/node_modules</b> with the correct base location
+Replace <b>sudo systemctl restart homebridge.service</b> with the command you use to restart Homebridge.
 
-<b>Note :</b> If you did not set base path, you won't be able to login.
 
 # Initial Run
 
@@ -52,22 +60,22 @@ Login Screen
 
 Most of your platform configs have usernames and passwords in them. To keep these seceret, this plugin has basic authentication. The users are stored in the ~/.homebridge/auth.json file.
 
-![Login](login.png)
+![](https://raw.githubusercontent.com/mkellsy/homebridge-config-ui/master/login.png)
 
 Status Screen
 
 This shows you that the services are running. It also has your HomeKit pin.
 
-![Status](status.png)
+![](https://raw.githubusercontent.com/mkellsy/homebridge-config-ui/master/status.png)
 
 Log Screen
 
 This shows you the rolling log. This is helpful for troubleshooting.
 
-![Log](log.png)
+![](https://raw.githubusercontent.com/mkellsy/homebridge-config-ui/master/log.png)
 
 Configuration Screen
 
 And finally the configuration screen allows you to modify your Homebridge settings and your platforms and accessories.
 
-![Config](config.png)
+![](https://raw.githubusercontent.com/mkellsy/homebridge-config-ui/master/config.png)
