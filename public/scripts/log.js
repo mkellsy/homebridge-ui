@@ -38,11 +38,11 @@ $(document).ready(function () {
         log = content.find("#error-log-contents");
 
         if (inital || enable || log.height() <= content.height()) {
-                log.load("/log/raw/error", function () {
-                    content.scrollTop(content.prop("scrollHeight"));
-                    inital = false;
-                });
-            }
+            log.load("/log/raw/error", function () {
+                content.scrollTop(content.prop("scrollHeight"));
+                inital = false;
+            });
+        }
 
         $("#clear-log").click(function () {
             $.get("/log/clear");

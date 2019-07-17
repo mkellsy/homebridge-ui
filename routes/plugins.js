@@ -84,12 +84,12 @@ router.get("/uninstall", function (req, res, next) {
         }
     }
 
-    fs.renameSync(hb.config, hb.config + "." + now.getFullYear() + "-"+ now.getMonth() + "-" + now.getDay() + "-" + ("0" + now.getHours()).slice(-2)   + ":" + 
-    ("0" + now.getMinutes()).slice(-2) + ":" + 
-    ("0" + now.getSeconds()).slice(-2));
+    fs.renameSync(hb.config, hb.config + "." + now.getFullYear() + "-" + now.getMonth() + "-" + now.getDay() + "-" + ("0" + now.getHours()).slice(-2) + ":" +
+        ("0" + now.getMinutes()).slice(-2) + ":" +
+        ("0" + now.getSeconds()).slice(-2));
     fs.appendFileSync(hb.config, JSON.stringify(config, null, 4));
-    fs.chownSync(hb.config, userId,groupId);
-    
+    fs.chownSync(hb.config, userId, groupId);
+
     delete require.cache[require.resolve(hb.config)];
 
     npm.uninstall(req.query.package, function (err, stdout, stderr) {
@@ -142,7 +142,7 @@ router.post("/install", function (req, res, next) {
         config.platforms.push(platform);
     }
 
-    if (!config.accessories){
+    if (!config.accessories) {
         config.accessories = [];
     } else
         if (req.body[req.body.accessory + "-delete"] == "false") {
@@ -152,11 +152,11 @@ router.post("/install", function (req, res, next) {
             config.accessories.push(accessory);
         }
 
-    fs.renameSync(hb.config, hb.config + "." + now.getFullYear() + "-"+ now.getMonth() + "-" + now.getDay() + "-" + ("0" + now.getHours()).slice(-2)   + ":" + 
-    ("0" + now.getMinutes()).slice(-2) + ":" + 
-    ("0" + now.getSeconds()).slice(-2));
+    fs.renameSync(hb.config, hb.config + "." + now.getFullYear() + "-" + now.getMonth() + "-" + now.getDay() + "-" + ("0" + now.getHours()).slice(-2) + ":" +
+        ("0" + now.getMinutes()).slice(-2) + ":" +
+        ("0" + now.getSeconds()).slice(-2));
     fs.appendFileSync(hb.config, JSON.stringify(config, null, 4));
-    fs.chownSync(hb.config, userId,groupId);
+    fs.chownSync(hb.config, userId, groupId);
 
     delete require.cache[require.resolve(hb.config)];
 

@@ -19,7 +19,8 @@
         </header>
         <section id="config-alert-message" class="mdc-dialog__body"></section>
         <footer class="mdc-dialog__footer">
-            <button type="button" class="mdc-button mdc-dialog__footer__button mdc-dialog__footer__button--accept">OK</button>
+            <button type="button"
+                class="mdc-button mdc-dialog__footer__button mdc-dialog__footer__button--accept">OK</button>
         </footer>
     </div>
     <div class="mdc-dialog__backdrop"></div>
@@ -33,34 +34,40 @@
                         <h1 class="form-label">Server</h1>
                         <div class="mdc-form-field">
                             <div class="mdc-textfield" data-mdc-auto-init="MDCTextfield">
-                                <input id="name" name="name" type="text" class="mdc-textfield__input" value="{{server.name}}">
+                                <input id="name" name="name" type="text" class="mdc-textfield__input"
+                                    value="{{server.name}}">
                                 <label for="name" class="mdc-textfield__label">Server Name</label>
                             </div>
                         </div>
                         <br />
                         <div class="mdc-form-field">
                             <div class="mdc-textfield" data-mdc-auto-init="MDCTextfield">
-                                <input id="mac" name="mac" type="text" class="mdc-textfield__input" value="{{server.mac}}">
+                                <input id="mac" name="mac" type="text" class="mdc-textfield__input"
+                                    value="{{server.mac}}">
                                 <label for="mac" class="mdc-textfield__label">Server MAC</label>
                             </div>
                         </div>
                         <br />
                         <div class="mdc-form-field">
                             <div class="mdc-textfield" data-mdc-auto-init="MDCTextfield">
-                                <input id="port" name="port" type="text" class="mdc-textfield__input" value="{{server.port}}">
+                                <input id="port" name="port" type="text" class="mdc-textfield__input"
+                                    value="{{server.port}}">
                                 <label for="port" class="mdc-textfield__label">Server Port</label>
                             </div>
                         </div>
                         <br />
                         <div class="mdc-form-field">
                             <div class="mdc-textfield" data-mdc-auto-init="MDCTextfield">
-                                <input id="pin" name="pin" type="text" class="mdc-textfield__input" value="{{server.pin}}">
+                                <input id="pin" name="pin" type="text" class="mdc-textfield__input"
+                                    value="{{server.pin}}">
                                 <label for="pin" class="mdc-textfield__label">Home PIN</label>
                             </div>
                         </div>
                         <br />
                         <br />
-                        <button type="button" class="save-button mdc-button mdc-button--raised mdc-button--primary mdc-ripple-surface" data-mdc-auto-init="MDCRipple">Save</button>
+                        <button type="button"
+                            class="save-button mdc-button mdc-button--raised mdc-button--primary mdc-ripple-surface"
+                            data-mdc-auto-init="MDCRipple">Save</button>
                     </div>
                 </td>
                 <td id="platforms">
@@ -77,16 +84,20 @@
                                             <td>
                                                 <div class="mdc-form-field">
                                                     <div class="mdc-textfield" data-mdc-auto-init="MDCTextfield">
-                                                        <input id="{{id}}-name" name="{{id}}-name" type="text" class="mdc-textfield__input" value="{{name}}">
-                                                        <label for="{{id}}-name" class="mdc-textfield__label">Name</label>
+                                                        <input id="{{id}}-name" name="{{id}}-name" type="text"
+                                                            class="mdc-textfield__input" value="{{name}}">
+                                                        <label for="{{id}}-name"
+                                                            class="mdc-textfield__label">Name</label>
                                                     </div>
                                                 </div>
                                             </td>
                                             <td>
-                                                <textarea id="{{id}}-code" name="{{id}}-code" platform="{{id}}">{{json}}</textarea>
+                                                <textarea id="{{id}}-code" name="{{id}}-code"
+                                                    platform="{{id}}">{{json}}</textarea>
                                             </td>
                                             <td>
-                                                <i class="platform-delete material-icons" role="button" platform="{{id}}">delete</i>
+                                                <i class="platform-delete material-icons" role="button"
+                                                    platform="{{id}}">delete</i>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -95,7 +106,9 @@
                             {{/platforms}}
                         </div>
                         <div class="config-form-actions">
-                            <button type="button" class="add-platform-button mdc-button mdc-button--raised mdc-button--primary mdc-ripple-surface" data-mdc-auto-init="MDCRipple">Add</button>
+                            <button type="button"
+                                class="add-platform-button mdc-button mdc-button--raised mdc-button--primary mdc-ripple-surface"
+                                data-mdc-auto-init="MDCRipple">Add</button>
                         </div>
                         <div id="accessory-container" class="platform-form">
                             <h1 class="form-label">Accessories</h1>
@@ -109,16 +122,20 @@
                                             <td>
                                                 <div class="mdc-form-field">
                                                     <div class="mdc-textfield" data-mdc-auto-init="MDCTextfield">
-                                                        <input id="{{id}}-name" name="{{id}}-name" type="text" class="mdc-textfield__input" value="{{name}}">
-                                                        <label for="{{id}}-name" class="mdc-textfield__label">Name</label>
+                                                        <input id="{{id}}-name" name="{{id}}-name" type="text"
+                                                            class="mdc-textfield__input" value="{{name}}">
+                                                        <label for="{{id}}-name"
+                                                            class="mdc-textfield__label">Name</label>
                                                     </div>
                                                 </div>
                                             </td>
                                             <td>
-                                                <textarea id="{{id}}-code" name="{{id}}-code" accessory="{{id}}">{{json}}</textarea>
+                                                <textarea id="{{id}}-code" name="{{id}}-code"
+                                                    accessory="{{id}}">{{json}}</textarea>
                                             </td>
                                             <td>
-                                                <i class="accessory-delete material-icons" role="button" accessory="{{id}}">delete</i>
+                                                <i class="accessory-delete material-icons" role="button"
+                                                    accessory="{{id}}">delete</i>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -127,7 +144,9 @@
                             {{/accessories}}
                         </div>
                         <div class="config-form-actions">
-                            <button type="button" class="add-accessory-button mdc-button mdc-button--raised mdc-button--primary mdc-ripple-surface" data-mdc-auto-init="MDCRipple">Add</button>
+                            <button type="button"
+                                class="add-accessory-button mdc-button mdc-button--raised mdc-button--primary mdc-ripple-surface"
+                                data-mdc-auto-init="MDCRipple">Add</button>
                         </div>
                     </div>
                 </td>

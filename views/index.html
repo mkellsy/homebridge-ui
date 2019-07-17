@@ -16,11 +16,14 @@
             </h2>
         </header>
         <section class="mdc-dialog__body">
-            It is a good idea to backup your configuration before upgrading. Also verify that this version is compatiable with your current version of NodeJS.
+            It is a good idea to backup your configuration before upgrading. Also verify that this version is
+            compatiable with your current version of NodeJS.
         </section>
         <footer class="mdc-dialog__footer">
-            <button type="button" class="mdc-button mdc-dialog__footer__button mdc-dialog__footer__button--cancel">Cancel</button>
-            <button type="button" class="mdc-button mdc-dialog__footer__button mdc-dialog__footer__button--accept">Upgrade</button>
+            <button type="button"
+                class="mdc-button mdc-dialog__footer__button mdc-dialog__footer__button--cancel">Cancel</button>
+            <button type="button"
+                class="mdc-button mdc-dialog__footer__button mdc-dialog__footer__button--accept">Upgrade</button>
         </footer>
     </div>
     <div class="mdc-dialog__backdrop"></div>
@@ -37,7 +40,8 @@
                         <img src="/pin" />
                     </div>
                     <p>
-                        With the camera on your iOS device, scan this eight-digit HomeKit code, or enter manually, to add to Apple Home.
+                        With the camera on your iOS device, scan this eight-digit HomeKit code, or enter manually, to
+                        add to Apple Home.
                     </p>
                 </div>
             </td>
@@ -57,7 +61,9 @@
                                 <span class="mdc-list-item__text__secondary">Version {{server.installed}}</span>
                             </span>
                             {{#user.admin}}
-                            <button type="button" class="upgrade-server-button mdc-button mdc-button--raised mdc-button--primary mdc-ripple-surface" data-mdc-auto-init="MDCRipple" version="{{server.version}}">Upgrade</button>
+                            <button type="button"
+                                class="upgrade-server-button mdc-button mdc-button--raised mdc-button--primary mdc-ripple-surface"
+                                data-mdc-auto-init="MDCRipple" version="{{server.version}}">Upgrade</button>
                             {{/user.admin}}
                             {{/update}}
                             {{^update}}

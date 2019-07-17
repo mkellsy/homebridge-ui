@@ -12,11 +12,14 @@
             </h2>
         </header>
         <section class="mdc-dialog__body">
-            It is a good idea to backup your configuration before upgrading. Also verify that this version is compatiable with your version of Homebridge.
+            It is a good idea to backup your configuration before upgrading. Also verify that this version is
+            compatiable with your version of Homebridge.
         </section>
         <footer class="mdc-dialog__footer">
-            <button type="button" class="mdc-button mdc-dialog__footer__button mdc-dialog__footer__button--cancel">Cancel</button>
-            <button type="button" class="mdc-button mdc-dialog__footer__button mdc-dialog__footer__button--accept">Upgrade</button>
+            <button type="button"
+                class="mdc-button mdc-dialog__footer__button mdc-dialog__footer__button--cancel">Cancel</button>
+            <button type="button"
+                class="mdc-button mdc-dialog__footer__button mdc-dialog__footer__button--accept">Upgrade</button>
         </footer>
     </div>
     <div class="mdc-dialog__backdrop"></div>
@@ -32,8 +35,10 @@
             Once you install this plugin you may have to modify your configuration before restarting.
         </section>
         <footer class="mdc-dialog__footer">
-            <button type="button" class="mdc-button mdc-dialog__footer__button mdc-dialog__footer__button--cancel">Cancel</button>
-            <button type="button" class="mdc-button mdc-dialog__footer__button mdc-dialog__footer__button--accept">Uninstall</button>
+            <button type="button"
+                class="mdc-button mdc-dialog__footer__button mdc-dialog__footer__button--cancel">Cancel</button>
+            <button type="button"
+                class="mdc-button mdc-dialog__footer__button mdc-dialog__footer__button--accept">Uninstall</button>
         </footer>
     </div>
     <div class="mdc-dialog__backdrop"></div>
@@ -60,12 +65,15 @@
         </section>
         <section class="mdc-card__actions">
             {{#links.npm}}
-            <button class="mdc-button mdc-button--compact mdc-card__action" onclick="window.open('{{links.npm}}', '_blank');">NPM</button>
+            <button class="mdc-button mdc-button--compact mdc-card__action"
+                onclick="window.open('{{links.npm}}', '_blank');">NPM</button>
             {{/links.npm}}
             {{#update}}
-            <button class="plugin-action-button mdc-button mdc-button--compact mdc-card__action" action="upgrade" package="{{name}}" version="{{version}}">Upgrade</button>
+            <button class="plugin-action-button mdc-button mdc-button--compact mdc-card__action" action="upgrade"
+                package="{{name}}" version="{{version}}">Upgrade</button>
             {{/update}}
-            <button class="plugin-action-button mdc-button mdc-button--compact mdc-card__action" action="uninstall" package="{{name}}">Uninstall</button>
+            <button class="plugin-action-button mdc-button mdc-button--compact mdc-card__action" action="uninstall"
+                package="{{name}}">Uninstall</button>
         </section>
         {{/installed}}
         {{^installed}}
@@ -75,9 +83,11 @@
         </section>
         <section class="mdc-card__actions">
             {{#links.npm}}
-            <button class="mdc-button mdc-button--compact mdc-card__action" onclick="window.open('{{links.npm}}', '_blank');">NPM</button>
+            <button class="mdc-button mdc-button--compact mdc-card__action"
+                onclick="window.open('{{links.npm}}', '_blank');">NPM</button>
             {{/links.npm}}
-            <button class="plugin-action-button mdc-button mdc-button--compact mdc-card__action" action="install" package="{{name}}">Install</button>
+            <button class="plugin-action-button mdc-button mdc-button--compact mdc-card__action" action="install"
+                package="{{name}}">Install</button>
         </section>
         {{/installed}}
     </div>

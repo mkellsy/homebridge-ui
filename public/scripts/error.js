@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
     $("error").find("button").click(function () {
         $(this).parent().find("pre").toggle();
     });

@@ -56,12 +56,12 @@ router.post("/advanced", function (req, res, next) {
 }, function (req, res, next) {
     var config = JSON.parse(req.body["config"]);
 
-    fs.renameSync(hb.config, hb.config + "." + now.getFullYear() + "-"+ now.getMonth() + "-" + now.getDay() + "-" + ("0" + now.getHours()).slice(-2)   + ":" + 
-    ("0" + now.getMinutes()).slice(-2) + ":" + 
-    ("0" + now.getSeconds()).slice(-2));
+    fs.renameSync(hb.config, hb.config + "." + now.getFullYear() + "-" + now.getMonth() + "-" + now.getDay() + "-" + ("0" + now.getHours()).slice(-2) + ":" +
+        ("0" + now.getMinutes()).slice(-2) + ":" +
+        ("0" + now.getSeconds()).slice(-2));
     fs.appendFileSync(hb.config, JSON.stringify(config, null, 4));
-    fs.chownSync(hb.config, userId,groupId);
-    
+    fs.chownSync(hb.config, userId, groupId);
+
     delete require.cache[require.resolve(hb.config)];
 
     app.get("log")("Advanced Configuration Changed.");
@@ -118,35 +118,35 @@ function write(req, res) {
 
     var accessories = [];
 
-        if (config.accessories === undefined){
-             console.log("accessories is undefined");
-             for (var i = 0; i < config.accessories; i++) {
-                 console.log("accessories is undefined in Loop");
-        var name = config.accessories.name;
+    if (config.accessories === undefined) {
+        console.log("accessories is undefined");
+        for (var i = 0; i < config.accessories; i++) {
+            console.log("accessories is undefined in Loop");
+            var name = config.accessories.name;
 
-        delete config.accessories.name;
+            delete config.accessories.name;
 
-        accessories.push({
-            id: i + "-" + config.accessories.accessory.split(".")[0],
-            name: name,
-            json: JSON.stringify(config.accessories, null, 4)
-        });
-         }
-         }
-    else if(config.accessories.length !== undefined){
-         console.log("accessories is NOT undefined");
+            accessories.push({
+                id: i + "-" + config.accessories.accessory.split(".")[0],
+                name: name,
+                json: JSON.stringify(config.accessories, null, 4)
+            });
+        }
+    }
+    else if (config.accessories.length !== undefined) {
+        console.log("accessories is NOT undefined");
         for (var i = 0; i < config.accessories.length; i++) {
             console.log("accessories is NOT undefined in loops");
             var name = config.accessories[i].name;
 
-        delete config.accessories[i].name;
+            delete config.accessories[i].name;
 
-        accessories.push({
-            id: i + "-" + config.accessories[i].accessory.split(".")[0],
-            name: name,
-            json: JSON.stringify(config.accessories[i], null, 4)
-        });
-    }
+            accessories.push({
+                id: i + "-" + config.accessories[i].accessory.split(".")[0],
+                name: name,
+                json: JSON.stringify(config.accessories[i], null, 4)
+            });
+        }
     }
 
     delete require.cache[require.resolve(hb.config)];
@@ -171,7 +171,7 @@ function save(req, res) {
 
     config.platforms = [];
 
-    if(Object.prototype.toString.call(req.body.platform) === "[object Array]") {
+    if (Object.prototype.toString.call(req.body.platform) === "[object Array]") {
         for (var i = 0; i < req.body.platform.length; i++) {
             if (req.body[req.body.platform[i] + "-delete"] == "false") {
                 var platform = JSON.parse(req.body[req.body.platform[i] + "-code"]);
@@ -191,7 +191,7 @@ function save(req, res) {
 
     config.accessories = [];
 
-    if(Object.prototype.toString.call(req.body.accessory) === "[object Array]") {
+    if (Object.prototype.toString.call(req.body.accessory) === "[object Array]") {
         for (var i = 0; i < req.body.accessory.length; i++) {
             if (req.body[req.body.accessory[i] + "-delete"] == "false") {
                 var accessory = JSON.parse(req.body[req.body.accessory[i] + "-code"]);
@@ -209,12 +209,12 @@ function save(req, res) {
         }
     }
 
-    fs.renameSync(hb.config, hb.config + "." + now.getFullYear() + "-"+ now.getMonth() + "-" + now.getDay() + "-" + ("0" + now.getHours()).slice(-2)   + ":" + 
-    ("0" + now.getMinutes()).slice(-2) + ":" + 
-    ("0" + now.getSeconds()).slice(-2));
+    fs.renameSync(hb.config, hb.config + "." + now.getFullYear() + "-" + now.getMonth() + "-" + now.getDay() + "-" + ("0" + now.getHours()).slice(-2) + ":" +
+        ("0" + now.getMinutes()).slice(-2) + ":" +
+        ("0" + now.getSeconds()).slice(-2));
     fs.appendFileSync(hb.config, JSON.stringify(config, null, 4));
-    fs.chownSync(hb.config, userId,groupId);
-    
+    fs.chownSync(hb.config, userId, groupId);
+
     delete require.cache[require.resolve(hb.config)];
 
     app.get("log")("Configuration Changed.");

@@ -34,7 +34,7 @@
                         json: true
                     }, function (err, res, body) {
                         var publicPackage = "code" in body || err ? false : true;
-			    
+
                         if (! "name" in pkg) {
                             pkg.name = dr;
                         }
@@ -46,7 +46,7 @@
                         if (! "description" in pkg) {
                             pkg.description = "No description.";
                         }
-			
+
                         var name = publicPackage ? body.collected.metadata.name : pkg.name;
                         var intalled = pkg.version;
                         var version = publicPackage ? body.collected.metadata.version : "N/A";
@@ -132,28 +132,28 @@
                         url: "https://api.npms.io/v2/package/" + name,
                         json: true
                     }, function (err, res, body) {
-	    		if(!err && res.statusCode==200){
-				var desc = body.collected.metadata.description.replace(/(?:https?|ftp):\/\/[\n\S]+/g, "").trim();
+                        if (!err && res.statusCode == 200) {
+                            var desc = body.collected.metadata.description.replace(/(?:https?|ftp):\/\/[\n\S]+/g, "").trim();
 
-				if (desc.length > 80) {
-				    desc = desc.substring(0, 77) + "...";
-				}
+                            if (desc.length > 80) {
+                                desc = desc.substring(0, 77) + "...";
+                            }
 
-				callback(err, {
-				    name: body.collected.metadata.name,
-				    installed: version,
-				    version: body.collected.metadata.version,
-				    update: !(me.versionCompare(version, body.collected.metadata.version)),
-				    description: desc,
-				    links: body.collected.metadata.links
-				});
-			} else{
-				callback(err, {
-				name: name,
-				installed: version,
-				description: desc
-				});
-			}	
+                            callback(err, {
+                                name: body.collected.metadata.name,
+                                installed: version,
+                                version: body.collected.metadata.version,
+                                update: !(me.versionCompare(version, body.collected.metadata.version)),
+                                description: desc,
+                                links: body.collected.metadata.links
+                            });
+                        } else {
+                            callback(err, {
+                                name: name,
+                                installed: version,
+                                description: desc
+                            });
+                        }
                     });
                 }
             }

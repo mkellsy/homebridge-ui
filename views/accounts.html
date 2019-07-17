@@ -51,7 +51,8 @@
                                     <input type="checkbox" id="auth-admin-check" class="mdc-checkbox__native-control" />
                                     <div class="mdc-checkbox__background">
                                         <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
-                                            <path class="mdc-checkbox__checkmark__path" fill="none" stroke="white" d="M1.73,12.91 8.1,19.28 22.79,4.59" />
+                                            <path class="mdc-checkbox__checkmark__path" fill="none" stroke="white"
+                                                d="M1.73,12.91 8.1,19.28 22.79,4.59" />
                                         </svg>
                                         <div class="mdc-checkbox__mixedmark"></div>
                                     </div>
@@ -65,8 +66,11 @@
                 </table>
             </section>
             <footer class="mdc-dialog__footer">
-                <button type="button" class="mdc-button mdc-dialog__footer__button mdc-dialog__footer__button--cancel">Cancel</button>
-                <button type="button" class="delete-auth-button mdc-button mdc-dialog__footer__button mdc-dialog__footer__button mdc-dialog__footer__button--cancel" style="color: #b21313;">Delete</button>
+                <button type="button"
+                    class="mdc-button mdc-dialog__footer__button mdc-dialog__footer__button--cancel">Cancel</button>
+                <button type="button"
+                    class="delete-auth-button mdc-button mdc-dialog__footer__button mdc-dialog__footer__button mdc-dialog__footer__button--cancel"
+                    style="color: #b21313;">Delete</button>
                 <button type="button" class="save-auth-button mdc-button mdc-dialog__footer__button">Save</button>
             </footer>
         </form>
@@ -84,8 +88,10 @@
             This user will not be able to login anymore.
         </section>
         <footer class="mdc-dialog__footer">
-            <button type="button" class="mdc-button mdc-dialog__footer__button mdc-dialog__footer__button--cancel">Cancel</button>
-            <button type="button" class="mdc-button mdc-dialog__footer__button mdc-dialog__footer__button--accept">Delete</button>
+            <button type="button"
+                class="mdc-button mdc-dialog__footer__button mdc-dialog__footer__button--cancel">Cancel</button>
+            <button type="button"
+                class="mdc-button mdc-dialog__footer__button mdc-dialog__footer__button--accept">Delete</button>
         </footer>
     </div>
     <div class="mdc-dialog__backdrop"></div>
@@ -94,10 +100,12 @@
     {{#auths}}
     <li class="mdc-list-item">
         {{#admin}}
-        <a href="#" class="edit-auth-button material-icons" title="Edit" authid="{{id}}" authusername="{{username}}" authname="{{name}}" authadmin="true">&#xE254;</a>
+        <a href="#" class="edit-auth-button material-icons" title="Edit" authid="{{id}}" authusername="{{username}}"
+            authname="{{name}}" authadmin="true">&#xE254;</a>
         {{/admin}}
         {{^admin}}
-        <a href="#" class="edit-auth-button material-icons" title="Edit" authid="{{id}}" authusername="{{username}}" authname="{{name}}" authadmin="false">&#xE254;</a>
+        <a href="#" class="edit-auth-button material-icons" title="Edit" authid="{{id}}" authusername="{{username}}"
+            authname="{{name}}" authadmin="false">&#xE254;</a>
         {{/admin}}
         <span class="mdc-list-item__start-detail account-item blue-bg" role="presentation">
             <i class="material-icons" aria-hidden="true">&#xE8A6;</i>
@@ -108,12 +116,13 @@
             <span class="mdc-list-item__text__secondary">Administrator</span>
             {{/admin}}
             {{^admin}}
-        <span class="mdc-list-item__text__secondary">User</span>
-        {{/admin}}
+            <span class="mdc-list-item__text__secondary">User</span>
+            {{/admin}}
         </span>
     </li>
     {{/auths}}
 </ul>
 <div class="auth-actions">
-    <button type="button" class="add-auth-button mdc-button mdc-button--raised mdc-button--primary mdc-ripple-surface" data-mdc-auto-init="MDCRipple">Add</button>
+    <button type="button" class="add-auth-button mdc-button mdc-button--raised mdc-button--primary mdc-ripple-surface"
+        data-mdc-auto-init="MDCRipple">Add</button>
 </div>

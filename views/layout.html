@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>{{title}}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -13,6 +14,7 @@
     <script src="/scripts/{{controller}}.js"></script>
     {{/controller}}
 </head>
+
 <body class="mdc-typography">
     <header class="mdc-toolbar mdc-toolbar--fixed">
         <div class="mdc-toolbar__row">
@@ -32,9 +34,12 @@
                 <a href="/" class="material-icons controller-index" aria-hidden="true" title="Status">&#xE1B1;</a>
                 <a href="/log" class="material-icons controller-log" aria-hidden="true" title="Logs">&#xE86D;</a>
                 {{#user.admin}}
-                <a href="/accounts" class="material-icons controller-accounts" aria-hidden="true" title="Accounts">&#xE8D3;</a>
-                <a href="/plugins" class="material-icons controller-plugins" aria-hidden="true" title="Plugins">&#xE87B;</a>
-                <a href="/config" class="material-icons controller-config" aria-hidden="true" title="Configuration">&#xE8B8;</a>
+                <a href="/accounts" class="material-icons controller-accounts" aria-hidden="true"
+                    title="Accounts">&#xE8D3;</a>
+                <a href="/plugins" class="material-icons controller-plugins" aria-hidden="true"
+                    title="Plugins">&#xE87B;</a>
+                <a href="/config" class="material-icons controller-config" aria-hidden="true"
+                    title="Configuration">&#xE8B8;</a>
                 {{/user.admin}}
             </nav>
         </div>
@@ -52,7 +57,8 @@
                             <span id="password-message"></span>
                             <div class="mdc-form-field" style="margin-left: 20px;">
                                 <div class="mdc-textfield" data-mdc-auto-init="MDCTextfield">
-                                    <input id="new-password" name="password" type="password" class="mdc-textfield__input" value="">
+                                    <input id="new-password" name="password" type="password"
+                                        class="mdc-textfield__input" value="">
                                     <label for="new-password" class="mdc-textfield__label">New Password</label>
                                 </div>
                             </div>
@@ -64,8 +70,10 @@
                             </div>
                         </section>
                         <footer class="mdc-dialog__footer">
-                            <button type="button" class="mdc-button mdc-dialog__footer__button mdc-dialog__footer__button--cancel">Cancel</button>
-                            <button type="button" class="set-password-button mdc-button mdc-dialog__footer__button">Set Password</button>
+                            <button type="button"
+                                class="mdc-button mdc-dialog__footer__button mdc-dialog__footer__button--cancel">Cancel</button>
+                            <button type="button" class="set-password-button mdc-button mdc-dialog__footer__button">Set
+                                Password</button>
                         </footer>
                     </form>
                 </div>
@@ -78,4 +86,5 @@
         mdc.autoInit();
     </script>
 </body>
+
 </html>
