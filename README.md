@@ -1,83 +1,59 @@
-# Homebridge Config UI
+![](https://raw.githubusercontent.com/hoobs-org/HOOBS/master/docs/logo.png)
+## Welcome to HOOBS
+Pronounced as "huːbz"  
 
-This is a plugin for [Homebridge](https://github.com/nfarina/homebridge)
+HOOBS a Homebridge stack with a interface that simplifies configuration and installing plugins. This adds a process wrapper for [Homebridge](https://github.com/nfarina/homebridge). It also adds an API that can be used as an endpoint for an application.
 
-This plugin allows you to monitor, backup and configure your Homebridge server from a browser.
+![](https://raw.githubusercontent.com/hoobs-org/HOOBS/master/docs/interface-light/accessories.png)
 
-![](https://raw.githubusercontent.com/mkellsy/homebridge-config-ui/master/status.png)
+HOOBS is not a Homebridge plugin. It is a seperate application designed to be a parent to Homebridge. Since this is independent, it can control Homebridge. This also keeps all of the plugins in one place. No need to install plugins in the global scope, which helps keep your Homebridge server more secure.
 
-## Installation Instructions
+## Introduction
+HOOBS goal is to make Homebridge more accessible to new inexperienced users and advanced users. To achieve this HOOBS' aim to unify, simplify and make the Homebridge ecosystem more user-friendly.
+Starting with a standardized installation in the form of a free downloadable image file that can be easily written to an sdcard. Up to the complete hardware solution which works out of the box.
+HOOBS combine hardware and operating system, with server service and user interface for easy installation of your favorite plugins and guide the user with manuals and assistance.
 
-> This is a deprecated project and is no longer being developed. This interface has moved to the [HOOBS](https://github.com/hoobs-org/HOOBS/wiki) project.
+We’re a small team from around the world who are passionate about making the home that you live in a better home – a smart home. That is why we came up with the idea of developing HOOBS which is an out of the box ready to run system for Homebridge. We want to create a solution that even beginners could understand, comfortable with and get a lot of use out of. Our motivation is to serve the homebridge community with a tool that we believe will make their lives easier and we hope our goal will be reached.
 
-First install the plugin
-```Bash
-sudo npm install -g homebridge-config-ui --unsafe-perm
-```
+## Documentation
+* [**Welcome**](https://github.com/hoobs-org/HOOBS/wiki)  
+* [**Community**](https://github.com/hoobs-org/HOOBS/wiki/1.0-Community)
+* [**News**](https://github.com/hoobs-org/HOOBS/wiki/1.1-News)  
+* [**Getting Started**](https://github.com/hoobs-org/HOOBS/wiki/2.0-Getting-Started)
+  * [**HOOBS Box**](https://github.com/hoobs-org/HOOBS/wiki/2.1-HOOBS-Box)
+  * [**HOOBS SD Card**](https://github.com/hoobs-org/HOOBS/wiki/2.2-HOOBS-SD-Card)
+  * [**Upgrading HOOBS**](https://github.com/hoobs-org/HOOBS/wiki/2.3-Upgrading-HOOBS)
+  * [**Upgrading Manually**](https://github.com/hoobs-org/HOOBS/wiki/2.4-Upgrading-Manually)
+  * [**Installing HOOBS**](https://github.com/hoobs-org/HOOBS/wiki/2.5-Installing-from-Scratch)
+  * [**Remote Access**](https://github.com/hoobs-org/HOOBS/wiki/2.7-Remote-Access)
+* [**User Interface**](https://github.com/hoobs-org/HOOBS/wiki/3.0-User-Interface)
+  * [**Administrator Account**](https://github.com/hoobs-org/HOOBS/wiki/3.1-Administrator-Account)
+  * [**Status Dashboard**](https://github.com/hoobs-org/HOOBS/wiki/3.2-Status-Dashboard)
+  * [**Accessories**](https://github.com/hoobs-org/HOOBS/wiki/3.3-Accessories)
+  * [**Room Layout**](https://github.com/hoobs-org/HOOBS/wiki/3.4-Room-Layout)
+  * [**Log**](https://github.com/hoobs-org/HOOBS/wiki/3.5-Log)
+  * [**System**](https://github.com/hoobs-org/HOOBS/wiki/3.6-System)
+  * [**Plugins**](https://github.com/hoobs-org/HOOBS/wiki/3.7-Plugins)
+  * [**Configuration**](https://github.com/hoobs-org/HOOBS/wiki/3.8-Configuration)
+  * [**User Accounts**](https://github.com/hoobs-org/HOOBS/wiki/3.9-User-Accounts)
+* [**Plugins**](https://github.com/hoobs-org/HOOBS/wiki/4.0-Plugins)
+* [**Hardware**](https://github.com/hoobs-org/HOOBS/wiki/5.0-Hardware)
+  * [**Certified Hardware**](https://github.com/hoobs-org/HOOBS/wiki/5.1-Certified-Hardware)
+  * [**Certified Accessories**](https://github.com/hoobs-org/HOOBS/wiki/5.2-Certified-Accessories)
+* [**Developers**](https://github.com/hoobs-org/HOOBS/wiki/6.0-Developers)
+  * [**Command Line Interface**](https://github.com/hoobs-org/HOOBS/wiki/6.1-Command-Line-Interface)
+  * [**Architecture**](https://github.com/hoobs-org/HOOBS/wiki/6.2-Architecture)
+  * [**API Reference**](https://github.com/hoobs-org/HOOBS/wiki/6.3-API-Reference)
+  * [**Developing Plugins**](https://github.com/hoobs-org/HOOBS/wiki/6.4-Developing-Plugins)
+* [**Legal**](https://github.com/hoobs-org/HOOBS/wiki/7.0-Legal)
+  * [**Terms & Conditions**](https://github.com/hoobs-org/HOOBS/wiki/7.1-Terms-and-Conditions)
+  * [**Shipping & Taxes**](https://github.com/hoobs-org/HOOBS/wiki/7.2-Shipping-and-Taxes)
+  * [**Warranty**](https://github.com/hoobs-org/HOOBS/wiki/7.3-Warranty)
+* [**Credits**](https://github.com/hoobs-org/HOOBS/wiki/8.0-Credits)
 
-### For Supervisord
+## Legal
+HOOBS.org is a department of two4you business solution gmbh
 
-Add this to your ~/.homebridge/config.json file
-```JSON
-{
-    "platform": "config",
-    "name": "Config",
-    "port": 8080,
-    "log": "/var/log/homebridge.stdout.log",
-    "error_log": "/var/log/homebridge.stderr.log",
-    "restart": "/usr/local/bin/supervisorctl restart homebridge"
-}
-```
+c/o two4you business solution gmbh | Rhypark 8 | CH-5080 Laufenburg | Switzerland
 
-This example uses [supervisor](http://supervisord.org/) to control homebridge. This is a good supervisor how to: [Running Supervisor on OSX](https://nicksergeant.com/running-supervisor-on-os-x/)
-
-Replace <b>/var/log/homebridge.stdout.log</b> with the path to your Homebridge output log.<br />
-Replace <b>/var/log/homebridge.stderr.log</b> with the path to your Homebridge error log.<br />
-Replace <b>/usr/local/bin/supervisorctl restart homebridge</b> with the command you use to restart Homebridge.
-
-### For Systemd
-
-Add this to your /var/homebridge/config.json file
-```JSON
-{
-    "platform": "config",
-    "name": "Config",
-    "port": 8080,
-    "log": "/var/log/daemon.log",
-    "restart": "sudo systemctl restart homebridge.service"
-}
-```
-
-Replace <b>/var/log/daemon.log</b> with the path to your Homebridge output log.<br />
-Replace <b>sudo systemctl restart homebridge.service</b> with the command you use to restart Homebridge.
-
-
-## Initial Run
-
-Once installed you can open the interface at http://localhost:8080. The default username is <b>admin</b> and the default password is <b>admin</b>.
-
-## Interface
-
-Login Screen
-
-Most of your platform configs have usernames and passwords in them. To keep these seceret, this plugin has basic authentication. The users are stored in the ~/.homebridge/auth.json file.
-
-![](https://raw.githubusercontent.com/mkellsy/homebridge-config-ui/master/login.png)
-
-Status Screen
-
-This shows you that the services are running. It also has your HomeKit pin.
-
-![](https://raw.githubusercontent.com/mkellsy/homebridge-config-ui/master/status.png)
-
-Log Screen
-
-This shows you the rolling log. This is helpful for troubleshooting.
-
-![](https://raw.githubusercontent.com/mkellsy/homebridge-config-ui/master/log.png)
-
-Configuration Screen
-
-And finally the configuration screen allows you to modify your Homebridge settings and your platforms and accessories.
-
-![](https://raw.githubusercontent.com/mkellsy/homebridge-config-ui/master/config.png)
+[HOOBS website](https://hoobs.org) | [HOOBS Support Chat](https://m.me/HOOBSofficial) | [HOOBS email](mailto:info@hoobs.org) | [HOOBS Subreddit](https://www.reddit.com/r/hoobs/) | [HOOBS Facebook Page](https://www.facebook.com/HOOBSofficial) | [HOOBS Facebook Support Group](https://www.facebook.com/groups/HOOBSorg/) | [Homebridge Subreddit](https://www.reddit.com/r/homebridge/) 
