@@ -18,6 +18,7 @@ case $os in
             dnf update -y nodejs
             node -v
         elif command -v apt-get > /dev/null; then
+            apt-get update
             apt-get install -y curl tar
 
             if [[ "$node" < "12.13.0" ]]; then
