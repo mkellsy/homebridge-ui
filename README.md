@@ -4,7 +4,7 @@ Pronounced as "huːbz"
 
 HOOBS a Homebridge stack with a interface that simplifies configuration and installing plugins. This adds a process wrapper for [Homebridge](https://github.com/nfarina/homebridge). It also adds an API that can be used as an endpoint for an application.
 
-![](https://raw.githubusercontent.com/hoobs-org/HOOBS/master/docs/interface-light/accessories.png)
+![](https://github.com/hoobs-org/HOOBS/raw/master/docs/themes/throwback-blue/dashboard.png)
 
 HOOBS is not a Homebridge plugin. It is a seperate application designed to be a parent to Homebridge. Since this is independent, it can control Homebridge. This also keeps all of the plugins in one place. No need to install plugins in the global scope, which helps keep your Homebridge server more secure.
 
