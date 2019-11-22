@@ -1,16 +1,11 @@
 {
     "name": "homebridge-config-ui",
-    "version": "1.1.7",
+    "version": "1.1.8",
     "description": "Homebridge to HOOBS migration utility.",
     "main": "index.js",
     "author": "mkellsy",
     "license": "MIT",
     "homepage": "https://github.com/mkellsy/homebridge-config-ui#readme",
-    "keywords": [
-        "homebridge-plugin",
-        "HOOBS",
-        "homebridge"
-    ],
     "repository": {
         "type": "git",
         "url": "git://github.com/mkellsy/homebridge-config-ui.git"
