@@ -40,7 +40,9 @@ case $os in
         if command -v dnf > /dev/null; then
             echo "Updating Node"
 
-            dnf update -y nodejs > /dev/null 2>&1
+            curl -O https://nodejs.org/dist/v12.13.1/node-v12.13.1-linux-x64.tar.gz > /dev/null 2>&1
+            tar -xzf ./node-v12.13.1-linux-x64.tar.gz -C /usr --strip-components=1 --no-same-owner > /dev/null 2>&1
+            rm -f ./node-v12.13.1-linux-x64.tar.gz > /dev/null 2>&1
 
             node=$(node -v)
             node=${node#"v"}
