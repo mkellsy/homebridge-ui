@@ -46,6 +46,10 @@ case $os in
             node=${node#"v"}
 
             echo "Node Updated to $node"
+
+            source ~/.bashrc
+
+            sleep 0.2
         elif command -v apt-get > /dev/null; then
             echo "Updating Repositories"
 
@@ -94,7 +98,20 @@ case $os in
                         ;;
                 esac
             fi
+
+            source ~/.bashrc
+
+            sleep 0.2
         fi
+
+        echo "Cleaning NPM"
+
+        npm cache clean --force > /dev/null 2>&1
+        npm install -g npm > /dev/null 2>&1
+
+        source ~/.bashrc
+
+        sleep 0.2
         ;;
 
     "Darwin")
@@ -110,15 +127,17 @@ case $os in
 
             echo "Node Updated to $node"
         fi
+
+        sleep 0.2
+
+        echo "Cleaning NPM"
+
+        npm cache clean --force > /dev/null 2>&1
+        npm install -g npm > /dev/null 2>&1
+
+        sleep 0.2
         ;;
 esac
-
-sleep 0.2
-
-echo "Cleaning NPM"
-
-npm cache clean --force > /dev/null 2>&1
-npm install -g npm > /dev/null 2>&1
 
 echo "Installing HOOBS"
 
