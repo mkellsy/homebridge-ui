@@ -33,26 +33,28 @@ sleep 0.2
 
 echo "Node Version $node"
 
-npm set progress=false
-
 case $os in
     "Linux")
         if command -v dnf > /dev/null; then
-            echo "Updating Node"
+            if [[ "$node" < "12.13.1" ]]; then
+                echo "Updating Node"
 
-            curl -O https://nodejs.org/dist/v12.13.1/node-v12.13.1-linux-x64.tar.gz > /dev/null 2>&1
-            tar -xzf ./node-v12.13.1-linux-x64.tar.gz -C /usr --strip-components=1 --no-same-owner > /dev/null 2>&1
-            rm -f ./node-v12.13.1-linux-x64.tar.gz > /dev/null 2>&1
+                curl -O https://nodejs.org/dist/v12.13.1/node-v12.13.1-linux-x64.tar.gz > /dev/null 2>&1
+                tar -xzf ./node-v12.13.1-linux-x64.tar.gz -C /usr --strip-components=1 --no-same-owner > /dev/null 2>&1
+                rm -f ./node-v12.13.1-linux-x64.tar.gz > /dev/null 2>&1
 
-            node=$(node -v)
-            node=${node#"v"}
+                node=$(node -v)
+                node=${node#"v"}
 
-            echo "Node Updated to $node"
+                echo "Node Updated to $node"
 
-            source ~/.bashrc
+                source ~/.bashrc
 
-            sleep 0.2
+                sleep 0.2
+            fi
         elif command -v apt-get > /dev/null; then
+            sleep 0.2
+
             echo "Updating Repositories"
 
             apt-get update > /dev/null 2>&1
@@ -145,16 +147,14 @@ echo "Installing HOOBS"
 
 npm install -g --unsafe-perm @hoobs/hoobs > /dev/null 2>&1
 
-sleep 0.2
+sleep 3
 
 kill -9 $marker
 
 echo "Configuring"
 echo "---------------------------------------------------------"
-
 echo ""
 echo ""
-
 echo "Initializing HOOBS"
 echo "---------------------------------------------------------"
 
