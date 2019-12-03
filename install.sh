@@ -110,6 +110,7 @@ case $os in
 
         echo "Cleaning NPM"
 
+        npm set progress=false > /dev/null 2>&1
         npm cache clean --force > /dev/null 2>&1
         npm install -g npm > /dev/null 2>&1
 
@@ -136,6 +137,7 @@ case $os in
 
         echo "Cleaning NPM"
 
+        npm set progress=false > /dev/null 2>&1
         npm cache clean --force > /dev/null 2>&1
         npm install -g npm > /dev/null 2>&1
 
@@ -145,6 +147,7 @@ esac
 
 echo "Installing HOOBS"
 
+npm set progress=false > /dev/null 2>&1
 npm install -g --unsafe-perm @hoobs/hoobs > /dev/null 2>&1
 
 sleep 3
