@@ -13,13 +13,5 @@
     "bugs": {
         "url": "https://github.com/hoobs-org/HOOBS/issues"
     },
-    "engines": {
-        "node": ">=8.15.1",
-        "homebridge": ">=0.4.22"
-    },
-    "scripts": {
-        "postinstall": "./install.sh",
-        "pack": "npm pack && rm -f ./builds/homebridge-to-hoobs.tgz && mv ./homebridge-to-hoobs-*.tgz ./builds/homebridge-to-hoobs.tgz"
-    },
     "dependencies": {}
 }
