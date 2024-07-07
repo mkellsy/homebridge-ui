@@ -1,0 +1,52 @@
+#!/usr/bin/env node
+
+const colors = require("colors");
+const fs = require("fs");
+const logger = require("js-logger");
+const path = require("path");
+const proc = require("child_process");
+
+const { build } = require("esbuild");
+
+const log = logger.get("Build");
+
+logger.setDefaults({ useDefaults: true });
+
+const options = {
+    bundle: true,
+    minify: true,
+    sourcemap: true,
+    target: "es6",
+    platform: "node",
+    external: ["homebridge"],
+    logLevel: "error",
+    legalComments: "none",
+};
+
+const tasks = [
+    {
+        input: path.resolve(__dirname, "src/index.ts"),
+        output: path.resolve(__dirname, "lib/index.js"),
+    },
+];
+
+const jobs = [];
+
+fs.rmSync(path.resolve(__dirname, "lib"), { recursive: true, force: true });
+
+for (let i = 0; i < tasks.length; i++) {
+    const task = tasks[i];
+
+    log.info(`esbuild ${colors.cyan(task.output)}`);
+
+    jobs.push(build({ ...options, entryPoints: [task.input], outfile: task.output }));
+}
+
+Promise.all(jobs)
+    .then(() => {
+        log.info(`${colors.green("BUILD COMPLETE")}\n`);
+    })
+    .catch((error) => {
+        log.error(error);
+        log.error(`${colors.red("BUILD FAILED")}\n`);
+    });

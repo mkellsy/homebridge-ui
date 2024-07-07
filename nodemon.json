@@ -1,0 +1,10 @@
+{
+    "watch": ["src"],
+    "ext": "ts",
+    "ignore": [],
+    "exec": "node ./build && homebridge --debug --user-storage-path ./storage",
+    "signal": "SIGTERM",
+    "env": {
+        "NODE_OPTIONS": "--trace-warnings"
+    }
+}
