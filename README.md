@@ -1,3 +1,3 @@
 # Homebridge UI
 
-Custom interface for Homebridge
+Web based management tool for Homebridge

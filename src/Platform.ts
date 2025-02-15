@@ -1,7 +1,7 @@
 import { API, DynamicPlatformPlugin, Logging, PlatformAccessory, PlatformConfig } from "homebridge";
 
-const platform: string = "ui";
-const plugin: string = "@mkellsy/homebridge-ui";
+const platform: string = "homebridge-config-ui";
+const plugin: string = "homebridge-config-ui";
 
 export { platform, plugin };
 
